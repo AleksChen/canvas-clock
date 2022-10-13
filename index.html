@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body style="height: 100%;width: 100%;display: flex;justify-content: center;">
+  <div class="card">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="clock.js"></script>
+  <script src="digitalLattice.js"></script>
+  <script src="countdown.js"></script>
+</body>
+<style>
+  body {
+    background: #212534;
+    padding: 10px;
+  }
+
+  .card {
+    background-color: #212534;
+    width: 1024px;
+    height: 468px;
+    margin: 50px auto;
+    padding: 20px 0 0;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  .card::before {
+    content: "";
+    width: 1040px;
+    height: 504px;
+    border-radius: 6px;
+    position: absolute;
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 50%, #4e00c2);
+    animation: spin 2.5s linear infinite;
+    top: -8px;
+    left: -8px;
+    z-index: -1;
+  }
+
+  @property --rotate {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+</style>
+
+</html>
